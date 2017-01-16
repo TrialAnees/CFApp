@@ -1,12 +1,13 @@
 var app = angular.module('cfguide', ['ui.router', 'ngMaterial', 'ngMessages']);
 
 app.controller('CFController', function ($mdSidenav, $scope, $state) {
-	var ctrl = this;
+  var ctrl = this;
 
+  var imagePath = 'img/dr.png';
 
-	ctrl.toggleNav = function () {
-		$mdSidenav('left').toggle();
-	}
+  ctrl.toggleNav = function () {
+    $mdSidenav('left').toggle();
+  }
 
   ctrl.openMenu = function ($mdOpenMenu, event) {
     $mdOpenMenu(event);
@@ -26,12 +27,12 @@ app.controller('CFController', function ($mdSidenav, $scope, $state) {
   }
 
   ctrl.addAppointment = function (appointment) {
+    appointment.face = imagePath;
     $scope.todos.push(appointment);
     $state.go('cfguide.appointments');
   }
 
 
-var imagePath = 'img/dr.png';
 
     $scope.todos = [
       {
@@ -104,11 +105,6 @@ $stateProvider
 			abstract: true,
 			url: '',
 			templateUrl: './pages/layout.html'
-		})
-
-		.state('cfguide.login', {
-			url: '/login',
-			templateUrl: './pages/login.html'
 		})
 
 		.state('cfguide.whatcf', {
