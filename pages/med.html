@@ -1,0 +1,47 @@
+<div class="prescribtion" flex>
+  <div class="heading">
+       <h2> Prescribtions </h2>
+  </div>
+ 
+
+  <md-content >
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="pres in med">
+        <div class="md-list-item-text">
+          <h3>{{ pres.tablet }}</h3>
+          <h4>{{ pres.time }}</h4>
+          <p>{{ pres.startD | date:dd/mm/yyyy }} to {{ pres.endD | date:dd/mm/yyyy}}</p>
+        </div>
+        
+        <md-menu md-position-mode="target-right target">
+            <md-button class="md-icon-button" ng-click="cf.openMenu($mdOpenMenu, $event)">
+                <md-icon class="material-icons">delete</md-icon>
+            </md-button>
+
+             <md-menu-content width="4">
+                <span class="md-padding">Are you sure you want to delete?</span>
+                <div layout="row">
+                    <md-menu-item flex="50">
+                        <md-button ng-click="cf.deleteMed(pres)">
+                            <md-icon class="material-icons">check</md-icon>
+                            Yes
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item flex="50">
+                        <md-button>
+                            <md-icon class="material-icons">close</md-icon>
+                            No
+                        </md-button>
+                    </md-menu-item>
+                </div>
+            </md-menu-content>
+        </md-menu>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+    <md-button class="md-fab md-primary fixed-b-r" ui-sref="cfguide.medicine" >
+      <md-icon class="material-icons">add</md-icon>
+    </md-button>
+  </md-content>
+</div>
+

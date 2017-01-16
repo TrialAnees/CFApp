@@ -1,0 +1,67 @@
+<md-toolbar>
+	<div class="md-toolbar-tools">
+		<md-button class="md-icon-button" aria-label="Settings" ng-click="cf.toggleNav()">
+			<md-icon class="material-icons">menu</md-icon>
+		</md-button>
+		<h2>
+			<span>CF App</span>
+		</h2>
+		<span flex></span>
+		<md-button class="md-icon-button" aria-label="settings" ng-click="logout">
+			<md-icon class="material-icons">power_settings_new</md-icon>
+		</md-button>
+	</div>
+</md-toolbar>
+
+<md-content layout="column" class="md-content-container" flex>
+	<md-sidenav
+		flex
+		class="md-sidenav-left"
+		md-component-id="left"
+		md-is-locked-open="$mdMedia('gt-md')"
+		md-whiteframe="4">
+
+		<md-content>
+			<md-list>
+				
+				<md-list-item>
+					<md-button ng-click="cf.toggleNav()" ui-sref="cfguide.home" flex>
+						<md-icon class="material-icons">home</md-icon>
+						Home
+					</md-button>
+					<md-divider></md-divider>
+				</md-list-item>
+				<md-list-item>
+					<md-button ng-click="cf.toggleNav()" ui-sref="cfguide.whatcf" flex>
+						<md-icon class="material-icons">info</md-icon>
+						What is CF?
+					</md-button>
+					<md-divider></md-divider>
+				</md-list-item>
+				<md-list-item>
+					<md-button ng-click="cf.toggleNav()" ui-sref="cfguide.appointments" flex>
+						<md-icon class="material-icons">watch_later</md-icon>
+						Appointments
+					</md-button>
+					<md-divider></md-divider>
+				</md-list-item>
+				<md-list-item>
+					<md-button ng-click="cf.toggleNav()" ui-sref="cfguide.med" flex>
+						<md-icon class="material-icons">note</md-icon>
+						Prescribtions
+					</md-button>
+					<md-divider></md-divider>
+				</md-list-item>
+				<md-list-item>
+					<md-button ng-click="cf.toggleNav()" ui-sref="cfguide.lifecf" flex>
+						<md-icon class="material-icons">accessibility</md-icon>
+						Life with CF
+					</md-button>
+					<md-divider></md-divider>
+				</md-list-item>
+			</md-list>
+		</md-content>
+	</md-sidenav>
+
+	<ui-view layout="column" flex></ui-view>
+</md-content>

@@ -1,0 +1,69 @@
+<div ng-controller="CFController" layout="column" ng-cloak>
+  <div class="heading">
+    <h2>Add prescribtions</h2>
+  </div>
+
+  <md-content layout-padding>
+    <form name="tabletsForm">
+
+      <div layout="column">
+        <md-input-container flex="50">
+          <label>Medicine Name</label>
+          <input required name="medname" autocomplete="off" ng-model="med.tablet">
+          <div ng-messages="tabletsForm.medname.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="50">
+          <label>Times to take medicine</label>
+          <md-select name="times" ng-model="med.time" required>
+            <md-option value="1 tab per day">1 tab per day</md-option>
+            <md-option value="2 tab per day">2 tab per day</md-option>
+            <md-option value="3 tab per day">3 tab per day</md-option>
+            <md-option value="4 tab per day">4 tab per day</md-option>
+          </md-select>
+          <div ng-messages="tabletsForm.times.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <input md-maxlength="30" required md-no-asterisk name="description" autocomplete="off" ng-model="med.infor">
+          <div ng-messages="tabletsForm.description.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="100">
+            <label>Doctor Name</label>
+            <input required name="doctor" autocomplete="off" ng-model="med.doctor">
+            <div ng-messages="tabletsForm.doctor.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        
+        <md-input-container flex>
+            <label>Start date</label>
+            <md-datepicker ng-model="med.startD"></md-datepicker>
+        </md-input-container>
+        <md-input-container flex>
+            <label>End date</label>
+            <md-datepicker ng-model="med.endD"></md-datepicker>
+        </md-input-container>
+      </div>
+
+   
+      <div layout="row" layout-align="center center">
+         <div class="save">
+            <md-button ng-click="cf.addPrescription(med)" ng-disabled="tabletsForm.$invalid">Save</md-button>
+        </div>
+        <div class="cancel">
+          <md-button class="md-raised"  ui-sref="cfguide.med">Cancel</md-button>
+        </div>
+      </div>
+    </form>
+  </md-content>
+
+</div>

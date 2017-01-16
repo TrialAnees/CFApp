@@ -1,0 +1,49 @@
+.md-sidenav-left {
+	max-width: 250px !important;
+}
+
+.md-sidenav-left md-content button, .md-sidenav-left md-content a {
+	text-align: initial !important;
+}
+
+ui-view[role="main"] {
+	position: relative;
+	height: 100%;
+}
+
+.material-icons {
+	color: #4caf50;
+}
+
+.heading-span{
+	text-align: center;
+	color: white;
+	background: url('../img/home.jpg');
+	background-size: cover;
+}
+
+.home-content{
+	position: relative;
+	color: white;
+}
+
+.heading{
+	text-align: center;
+}
+
+.save{
+	color: green;
+	align-content: right;
+}
+
+.fixed-b-r {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+
+.fixed-b-l {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+}

@@ -1,0 +1,65 @@
+<div ng-controller="CFController" layout="column" ng-cloak>
+    <div class="heading">
+      <h2>Add Appointment</h2>
+    </div>
+  <md-content layout-padding>
+    <form name="addappointForm">
+
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Doctor Name</label>
+          <input required name="doctor" autocomplete="off" ng-model="addappoint.doctor">
+          <div ng-messages="addappointForm.doctor.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="50">
+          <label>Hospital</label>
+          <md-select name="place" ng-model="addappoint.place" >
+            <md-option value="IGMH">IGMH</md-option>
+            <md-option value="ADK">ADK</md-option>
+            <md-option value="Central Clinic">Central Clinic</md-option>
+            <md-option value="Maya Clinic">Maya Clinic</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Description</label>
+        <input md-maxlength="30" required md-no-asterisk name="appdescription" ng-model="addappoint.infor">
+        <div ng-messages="addappointForm.appdescription.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+          <label>Enter date</label>
+          <md-datepicker ng-model="addappoint.date"></md-datepicker>
+      </md-input-container>
+
+
+      <md-input-container class="md-block">
+        <label>Doctor Email</label>
+        <input required type="docEmail" name="docEmail" autocomplete="off" ng-model="addappoint.docEmail" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+        <div ng-messages="addappointForm.docEmail.$error" role="alert">
+          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your email must be between 10 and 100 characters long and look like an e-mail address.
+          </div>
+        </div>
+      </md-input-container>
+<div layout="row" layout-align="center center">
+      <div class="save">
+        <md-button ng-click="cf.addAppointment(addappoint)" ng-disabled="addappointForm.$invalid">Save</md-button>
+        
+      </div>
+      <div class="cancel">
+        <md-button class="md-raised" ui-sref="cfguide.appointments">Cancel</md-button>
+      </div>
+</div>
+    </form>
+  </md-content>
+
+</div>
